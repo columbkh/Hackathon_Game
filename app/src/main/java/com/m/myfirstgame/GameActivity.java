@@ -67,8 +67,11 @@ public class GameActivity extends AppCompatActivity {
 
                 // BOOM?
                 if (drag==true) {
-                    Toast.makeText(getApplicationContext(),"PEWPEWPEW",Toast.LENGTH_SHORT).show();
-                    controller.enableRun();
+                    if (controller.getGame().getButton().getBoundingRect().contains(x, y)) {
+                        Toast.makeText(getApplicationContext(),"PEWPEWPEW",Toast.LENGTH_SHORT).show();
+                        controller.enableRun();
+                        // handle on touch here
+                    }
                     /*try {
                         TimeUnit.SECONDS.sleep(1);
                     } catch (InterruptedException e) {

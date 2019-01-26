@@ -9,8 +9,10 @@ public class Game {
     private Platform platform;
     private Prince prince;
     private Turm turm;
+    private GButton button;
 
     public Game(int screenWidth, int screenHeight, float speedX, float speedY, float gravity) {
+        button = new GButton(screenWidth - 300, screenHeight - 250, 200, 100);
         ball = new Ball(speedX, speedY, gravity, screenHeight);
         prince = new Prince(screenWidth - 100, 50);
         turm = new Turm(ball.getX() - ball.getRadius(), 0, 2 * ball.getRadius(), ball.getY() - ball.getRadius());
@@ -22,7 +24,12 @@ public class Game {
         platform = new Platform(0, 0, screenWidth, 50);
         objects.addFirst(platform);
         objects.addFirst(turm);
+        objects.addFirst(button);
 
+    }
+
+    public GButton getButton() {
+        return button;
     }
 
     public Turm getTurm() {
