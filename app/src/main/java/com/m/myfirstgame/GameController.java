@@ -8,6 +8,7 @@ public class GameController {
     private float speedX;
     private float speedY;
     private float gravity;
+    private Prince prince;
 
     public GameController(GameActivity context, float speedX, float speedY, float gravity) {
         this.context = context;
@@ -19,6 +20,8 @@ public class GameController {
 
     public void update() {
         ball.updatePosition();
+        prince.updatePosition();
+
 
         Platform p = game.getPlatform();
 
@@ -48,6 +51,7 @@ public class GameController {
     public void start() {
         game = new Game(this.view.getSurfaceWidth(), this.view.getSurfaceHeight(), speedX, speedY, gravity);
         ball = game.getBall();
+        prince = game.getPrince();
     }
 
     public GameSurfaceView getView() {

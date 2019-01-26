@@ -4,7 +4,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
-import android.util.Log;
 
 public class Ball extends GameObject {
     private float speedX;
@@ -42,8 +41,8 @@ public class Ball extends GameObject {
     public void draw(Canvas canvas, Paint paint) {
         paint.setColor(BALL_COLOR);
         canvas.drawCircle(x, y, radius, paint);
-        Log.e("Coordinates", Float.toString(x) + "     " + Float.toString(y) + "   " + Float.toString(speedX) + "  " + Float.toString(speedY) +
-              "  " +  Float.toString(n));
+        /*Log.e("Coordinates", Float.toString(x) + "     " + Float.toString(y) + "   " + Float.toString(speedX) + "  " + Float.toString(speedY) +
+              "  " +  Float.toString(n));*/
     }
 
 

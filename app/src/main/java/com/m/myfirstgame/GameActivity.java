@@ -8,11 +8,11 @@ import android.view.WindowManager;
 public class GameActivity extends AppCompatActivity {
 
     GameController controller;
-    private static double ANGLE = 64.3f;
-    private static double VELOCITY = 103.36;
+    private static double ANGLE = 45.3f;
+    private static double VELOCITY = 53.36;
     private float SPEED_X = (float) (VELOCITY * Math.cos(ANGLE));
     private  float SPEED_Y = (float) (VELOCITY * Math.sin(ANGLE));
-    private static float GRAVITY = 10.1f;
+    private static float GRAVITY = 5.4f;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
