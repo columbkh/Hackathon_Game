@@ -11,7 +11,7 @@ public class Prince extends GameObject {
     private final static int PRINCE_COLOR = Color.RED;
     private float width = 20f;
     private float height = 30f;
-    private float speed = 10f;
+    private float speed = 2f;
 
     public Prince(float x, float y) {
         super(x, y);

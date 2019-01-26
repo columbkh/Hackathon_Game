@@ -15,8 +15,10 @@ public class GameActivity extends AppCompatActivity {
     private float angle;
     private float power;
     private boolean drag;
-    private float SPEED_X = (float) (power * Math.cos(angle));
-    private  float SPEED_Y = (float) (power * Math.sin(angle));
+    private float SPEED_X;
+    private float SPEED_Y;
+    private static double ANGLE_CONST = Math.PI / 2;
+    private static double VELOCITY_CONST = 53.36;
     private static float GRAVITY = 5.4f;
 
     @Override
@@ -53,8 +55,8 @@ public class GameActivity extends AppCompatActivity {
                     x = evX;
                     y = evY;
                     drag=false;
-                    SPEED_X = (float) (power * Math.cos(angle));
-                    SPEED_Y = (float) (power * Math.sin(angle));
+                    SPEED_X = (float) (VELOCITY_CONST * power * Math.cos(ANGLE_CONST * angle));
+                    SPEED_Y = (float) (VELOCITY_CONST * power * Math.sin(ANGLE_CONST * angle));
                     controller.getBall().setSpeedX(SPEED_X);
                     controller.getBall().setSpeedY(SPEED_Y);
                 }
