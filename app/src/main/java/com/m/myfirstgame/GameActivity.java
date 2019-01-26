@@ -8,7 +8,7 @@ public class GameActivity extends AppCompatActivity {
 
     GameController controller;
     private static float SPEED_X = 5f;
-    private static float SPEED_Y = 1000gitf;
+    private static float SPEED_Y = 1000f;
     private static float GRAVITY = 100f;
 
     @Override
