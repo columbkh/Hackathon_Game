@@ -1,13 +1,11 @@
 package com.m.myfirstgame;
-import android.view.MotionEvent;
-
-
-import android.widget.Toast;
 
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MotionEvent;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 public class GameActivity extends AppCompatActivity {
 
@@ -25,7 +23,7 @@ public class GameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-        controller = new GameController(this, SPEED_X, SPEED_Y, GRAVITY);
+        controller = new GameController(this, 0, 0, GRAVITY);
         setContentView(controller.getView());
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     }
@@ -55,6 +53,10 @@ public class GameActivity extends AppCompatActivity {
                     x = evX;
                     y = evY;
                     drag=false;
+                    SPEED_X = (float) (power * Math.cos(angle));
+                    SPEED_Y = (float) (power * Math.sin(angle));
+                    controller.getBall().setSpeedX(SPEED_X);
+                    controller.getBall().setSpeedY(SPEED_Y);
                 }
                 break;
             // касание завершено
@@ -62,9 +64,21 @@ public class GameActivity extends AppCompatActivity {
                 // выключаем режим перетаскивания
 
                 // BOOM?
-                if (drag==true)
+                if (drag==true) {
                     Toast.makeText(getApplicationContext(),"PEWPEWPEW",Toast.LENGTH_SHORT).show();
-                else Toast.makeText(getApplicationContext(),"Adjusting bombarde: power "+power+" angle "+angle,Toast.LENGTH_SHORT).show();
+                    controller.enableRun();
+                    /*try {
+                        TimeUnit.SECONDS.sleep(1);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    controller.disableRun();*/
+
+
+                }
+                else {
+                    Toast.makeText(getApplicationContext(),"Adjusting bombarde: power "+power+" angle "+angle,Toast.LENGTH_SHORT).show();
+                }
                 break;
         }
         return true;

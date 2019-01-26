@@ -9,6 +9,7 @@ public class Ball extends GameObject {
     private float speedX;
     private float speedY;
     private float gravity;
+    private boolean run = false;
     private float radius = 20f;
     private static int BALL_COLOR = Color.BLACK;
     private static float INIT_X = 100;
@@ -21,6 +22,17 @@ public class Ball extends GameObject {
         this.gravity = gravity;
    }
 
+    public void setSpeedX(float speedX) {
+        this.speedX = speedX;
+    }
+
+    public void setSpeedY(float speedY) {
+        this.speedY = speedY;
+    }
+
+    public void setRun(boolean run) {
+        this.run = run;
+    }
 
     public void rebound() {
         n = 0;
@@ -28,10 +40,14 @@ public class Ball extends GameObject {
 
 
 
+
     public void updatePosition() {
-        this.x += speedX;
-        this.y += (-gravity*n + speedY - gravity/2);
-        n += 1;
+        if (run) {
+            this.x += speedX;
+            this.y += (-gravity*n + speedY - gravity/2);
+            n += 1;
+        }
+
     }
 
     public RectF getBoundingRect() {

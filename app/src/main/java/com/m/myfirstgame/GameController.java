@@ -1,8 +1,4 @@
 package com.m.myfirstgame;
-import android.view.MotionEvent;
-import android.view.View;
-
-
 public class GameController {
     private GameActivity context;
     private GameSurfaceView view;
@@ -12,7 +8,26 @@ public class GameController {
     private float speedY;
     private float gravity;
     private Prince prince;
+    private boolean run;
 
+
+    public Ball getBall() {
+        return ball;
+    }
+
+    public void enableRun() {
+        this.run = true;
+    }
+
+    public void disableRun() {
+        this.run = false;
+    }
+
+    public void throwBall() {
+        if (run) {
+            ball.setRun(true);
+        }
+    }
 
 
 
@@ -29,6 +44,8 @@ public class GameController {
     }
 
     public void update() {
+        throwBall();
+
         ball.updatePosition();
         prince.updatePosition();
 
