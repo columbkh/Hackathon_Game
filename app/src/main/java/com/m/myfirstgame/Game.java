@@ -25,6 +25,10 @@ public class Game {
         return prince;
     }
 
+    public void deletePrince() {
+        objects.remove(prince);
+    }
+
     public Ball getBall() {
         return ball;
     }

@@ -29,6 +29,10 @@ public class GameController {
             ball.rebound();
         }
 
+        if (ball.getBoundingRect().intersect(prince.getBoundingRect())) {
+            game.deletePrince();
+        }
+
 
 
 
