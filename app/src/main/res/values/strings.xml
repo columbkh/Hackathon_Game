@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">My First Game</string>
+    <string name="start_button">START</string>
+    <string name="title_activity_game">GameActivity</string>
+</resources>
