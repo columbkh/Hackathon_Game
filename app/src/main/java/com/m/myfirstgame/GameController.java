@@ -1,5 +1,6 @@
 package com.m.myfirstgame;
 import android.view.MotionEvent;
+import android.view.View;
 
 
 public class GameController {
@@ -10,6 +11,11 @@ public class GameController {
     private float speedX;
     private float speedY;
     private float gravity;
+    private Prince prince;
+
+
+
+
 
 
     public GameController(GameActivity context, float speedX, float speedY, float gravity) {
@@ -24,6 +30,32 @@ public class GameController {
 
     public void update() {
         ball.updatePosition();
+        prince.updatePosition();
+
+
+        Platform p = game.getPlatform();
+
+        if (ball.getBoundingRect().intersect(p.boundingRect)) {
+            ball.rebound();
+        }
+
+        if (ball.getBoundingRect().intersect(prince.getBoundingRect())) {
+            game.deletePrince();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
     public Game getGame() {
@@ -33,6 +65,8 @@ public class GameController {
     public void start() {
         game = new Game(this.view.getSurfaceWidth(), this.view.getSurfaceHeight(), speedX, speedY, gravity);
         ball = game.getBall();
+
+        prince = game.getPrince();
 
     }
 

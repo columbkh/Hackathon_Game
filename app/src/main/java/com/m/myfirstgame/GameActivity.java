@@ -4,6 +4,7 @@ import android.view.MotionEvent;
 
 import android.widget.Toast;
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
@@ -11,18 +12,19 @@ import android.view.WindowManager;
 public class GameActivity extends AppCompatActivity {
 
     GameController controller;
-    private static float SPEED_X = 5f;
-    private static float SPEED_Y = 1000f;
-    private static float GRAVITY = 100f;
     private float x;
     private float y;
     private float angle;
     private float power;
     private boolean drag;
+    private float SPEED_X = (float) (power * Math.cos(angle));
+    private  float SPEED_Y = (float) (power * Math.sin(angle));
+    private static float GRAVITY = 5.4f;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         controller = new GameController(this, SPEED_X, SPEED_Y, GRAVITY);
         setContentView(controller.getView());
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
