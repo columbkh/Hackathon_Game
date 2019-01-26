@@ -19,6 +19,26 @@ public class GameController {
 
     public void update() {
         ball.updatePosition();
+
+        Platform p = game.getPlatform();
+
+        if (ball.getBoundingRect().intersect(p.boundingRect)) {
+            ball.rebound();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
     public Game getGame() {
