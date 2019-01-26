@@ -79,7 +79,7 @@ public class GameActivity extends AppCompatActivity {
 
                 }
                 else {
-                    Toast.makeText(getApplicationContext(),"Adjusting bombarde: power "+power+" angle "+angle,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Adjusting bombarde: power "+power+" angle "+(float) Math.toDegrees(ANGLE_CONST * angle),Toast.LENGTH_SHORT).show();
                 }
                 break;
         }

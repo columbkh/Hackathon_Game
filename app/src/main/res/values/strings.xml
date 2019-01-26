@@ -2,4 +2,7 @@
     <string name="app_name">My First Game</string>
     <string name="start_button">START</string>
     <string name="title_activity_game">GameActivity</string>
+    <string name="lost_act">You Lost!</string>
+    <string name="won_act">You Won!</string>
+    <string name="main_menu">Go to Main Menu</string>
 </resources>

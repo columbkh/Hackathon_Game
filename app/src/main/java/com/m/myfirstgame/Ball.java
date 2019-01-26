@@ -15,6 +15,9 @@ public class Ball extends GameObject {
     private static float INIT_X = 100;
     private float INIT_Y = 600;
 
+    public float getRadius() {
+        return this.radius;
+    }
     public Ball(float speedX, float speedY, float gravity, int height) {
         super(INIT_X, (float)(height-100));
         this.speedX = speedX;

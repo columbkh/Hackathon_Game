@@ -1,4 +1,7 @@
 package com.m.myfirstgame;
+
+import android.content.Intent;
+
 public class GameController {
     private GameActivity context;
     private GameSurfaceView view;
@@ -51,6 +54,7 @@ public class GameController {
 
 
         Platform p = game.getPlatform();
+        Turm t = game.getTurm();
 
         if (ball.getBoundingRect().intersect(p.boundingRect)) {
             ball.rebound();
@@ -58,6 +62,15 @@ public class GameController {
 
         if (ball.getBoundingRect().intersect(prince.getBoundingRect())) {
             game.deletePrince();
+            Intent intent = new Intent(context, WonActivity.class);
+            context.startActivity(intent);
+            //Activity win
+        }
+
+        if (prince.getBoundingRect().intersect(t.boundingRect)) {
+            Intent intent = new Intent(context, LostActivity.class);
+            context.startActivity(intent);
+            //Activity Lost
         }
 
 

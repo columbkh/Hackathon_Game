@@ -8,10 +8,12 @@ public class Game {
     private final int screenWidth, screenHeight;
     private Platform platform;
     private Prince prince;
+    private Turm turm;
 
     public Game(int screenWidth, int screenHeight, float speedX, float speedY, float gravity) {
         ball = new Ball(speedX, speedY, gravity, screenHeight);
         prince = new Prince(screenWidth - 100, 50);
+        turm = new Turm(ball.getX() - ball.getRadius(), 0, 2 * ball.getRadius(), ball.getY() - ball.getRadius());
         this.screenWidth = screenWidth;
         this.screenHeight = screenHeight;
         objects = new LinkedList<>();
@@ -19,6 +21,12 @@ public class Game {
         objects.add(prince);
         platform = new Platform(0, 0, screenWidth, 50);
         objects.addFirst(platform);
+        objects.addFirst(turm);
+
+    }
+
+    public Turm getTurm() {
+        return turm;
     }
 
     public Prince getPrince() {
